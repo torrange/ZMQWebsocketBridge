@@ -1,0 +1,31 @@
+{% extends "base.html"  %}
+
+{% block body %}
+  <core-header-panel>
+    <core-toolbar>
+      <paper-tabs id="tabs" selected="all" self-end>
+        <paper-tab name="all">All</paper-tab>
+        <paper-tab name="favorites">Favorites</paper-tab>
+        <paper-tab name="favorites2">Favorites2</paper-tab>
+      </paper-tabs>
+    </core-toolbar>
+
+
+    <div class="container" layout vertical center>
+      <post-list show="all"></post-list>
+    </div>
+
+    <div id="output"></div>
+    
+  </core-header-panel>
+  
+  <script>
+  var tabs = document.querySelector('paper-tabs');
+  var list = document.querySelector('post-list');
+
+  tabs.addEventListener('core-select', function() {
+    list.show = tabs.selected;
+  });
+  </script>
+  {% endblock  %}
+
