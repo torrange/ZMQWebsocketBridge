@@ -9,14 +9,7 @@ app = Flask(__name__)
 sockets = Sockets(app)
 
 
-#WebSockets
-# @sockets.route('/echo')
-# def echo_socket(ws):
-#     while True:
-#         #message = ws.receive()
-#         ws.send("my message")
-#         sleep(1)
-
+#WebSockets Routes
 @sockets.route('/echo')
 def echo_socket(ws):
     while True:
@@ -29,6 +22,7 @@ def echo_socket(ws):
 
 
 
+#App Routes
 @app.route("/")
 def main():
 	return render_template("index.html")
