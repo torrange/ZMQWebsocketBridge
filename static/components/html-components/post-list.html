@@ -16,7 +16,7 @@
 
     <post-service id="service" posts="{{posts}}"></post-service>
     
-    <div layout vertical center>
+    <div id="feed" layout vertical center>
       <template repeat="{{post in posts}}">
         <post-card
           favorite="{{post.favorite}}"

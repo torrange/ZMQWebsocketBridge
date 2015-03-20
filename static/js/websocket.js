@@ -5,6 +5,7 @@ var output;
 function init()
 {
   output = document.getElementById("output");
+  feeder = document.getElementById("feed")
   testWebSocket();
 }
 
@@ -31,7 +32,15 @@ function onClose(evt)
 
 function onMessage(evt)
 {
-  writeToScreen('<span style="color: blue;">RESPONSE: ' + evt.data+'</span>');
+  jdata = JSON.parse(evt.data)
+  data = evt.data
+  username = jdata["username"]
+  text = jdata["text"]
+  favorite = jdata["favorite"]
+  uid = jdata["uid"]
+  avatar = jdata["avatar"]
+  writeToScreen('<span style="color: blue;">' + text+'</span>');
+  //writeToScreen("wib");
 }
 
 function onMessageFeed(evt)
@@ -60,7 +69,10 @@ function writeToScreen(message)
 
 function writeToFeed(message)
 {
-  //var pre = document.createElement()
+  var pre = document.createElement("p");
+  pre.style.wordWrap = "break-word";
+  pre.innerHTML = message;
+  feeder.appendChild(pre);
 }
 
 window.addEventListener("load", init, false);
