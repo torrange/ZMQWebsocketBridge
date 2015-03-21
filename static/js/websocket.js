@@ -39,7 +39,6 @@ function onMessage(evt)
   favorite = jdata["favorite"]
   uid = jdata["uid"]
   avatar = jdata["avatar"]
-  //writeToScreen('<span style="color: blue;">' + text+'</span>');
   writeToFeed('<feed-card>' + '<p>' + text + '</p>' + '</feed-card>');
 }
 
