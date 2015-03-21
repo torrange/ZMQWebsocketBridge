@@ -18,7 +18,7 @@ def echo_socket(ws):
         for post in posts:
         	_post = dumps(post)
         	ws.send(_post)
-        	sleep(1)
+        	sleep(2)
 
 
 
