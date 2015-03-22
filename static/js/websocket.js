@@ -64,7 +64,7 @@ function writeToScreen(message)
 
 function writeToFeed(message)
 {
-  feeder.innerHTML += message;
+  feeder.innerHTML = message + feeder.innerHTML;
 }
 
 window.addEventListener("load", init, false);
