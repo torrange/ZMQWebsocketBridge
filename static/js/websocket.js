@@ -6,6 +6,7 @@ function init()
 {
   output = document.getElementById("output");
   feeder = document.getElementById("testfeedcards")
+  countid = 0
   testWebSocket();
 }
 
@@ -39,9 +40,11 @@ function onMessage(evt)
   favorite = jdata["favorite"]
   uid = jdata["uid"]
   avatar = jdata["avatar"]
-  html = '<feed-card><img src="' + avatar + '" width="70" height="70">' +
+  html = '<feed-card id=' + '"card' + countid + '"' + ' favorite="' + favorite + '">' + 
+  '<img src="' + avatar + '" width="70" height="70">' +
   '<h2>' + username + '</h2>'+ '<p>' + text + '</p>' + '</feed-card>';
   writeToFeed(html);
+  countid += 1
 }
 
 function onError(evt)

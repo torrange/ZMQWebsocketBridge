@@ -14,7 +14,6 @@
       font-weight: 300;
       margin-bottom: 30px;
     }
-    .card-header {
       margin-bottom: 10px;
     }
     polyfill-next-selector { content: '.card-header h2'; }
@@ -67,6 +66,7 @@
     favoriteTapped: function(event, detail, sender) {
       this.favorite = !this.favorite;
       this.fire('favorite-tap');
+      0;
     }
   });
   </script>
