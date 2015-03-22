@@ -39,8 +39,9 @@ function onMessage(evt)
   favorite = jdata["favorite"]
   uid = jdata["uid"]
   avatar = jdata["avatar"]
-  html = ""
-  writeToFeed('<feed-card>' + '<p>' + text + '</p>' + '</feed-card>');
+  html = '<feed-card><img src="' + avatar + '" width="70" height="70">' +
+  '<h2>' + username + '</h2>'+ '<p>' + text + '</p>' + '</feed-card>';
+  writeToFeed(html);
 }
 
 function onError(evt)
