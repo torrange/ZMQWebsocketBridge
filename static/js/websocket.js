@@ -1,16 +1,16 @@
 //make `wsUri` a variable
-var wsUri = "ws://127.0.0.1:8000/echo";
+// var wsUri = "ws://127.0.0.1:8000/echo";
+var wsUri = "ws://127.0.0.1:8000/zmqfeed";
 var output;
 
 function init()
 {
-  output = document.getElementById("output");
   feeder = document.getElementById("testfeedcards")
   countid = 0
-  testWebSocket();
+  launchWebSocket();
 }
 
-function testWebSocket()
+function launchWebSocket()
 {
   websocket = new WebSocket(wsUri);
   websocket.onopen = function(evt) { onOpen(evt) };
@@ -29,12 +29,13 @@ function onClose(evt)
 {
   var log_entry = "Disconnected"
   console.log(log_entry)
+  launchWebSocket()
 }
 
 function onMessage(evt)
 {
-  jdata = JSON.parse(evt.data)
-  data = evt.data
+  packet = evt.data.split("::")[1]
+  jdata = JSON.parse(packet)
   username = jdata["username"]
   text = jdata["text"]
   favorite = jdata["favorite"]
